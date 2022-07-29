@@ -58,9 +58,21 @@ export class FaceSnapsService {
         comment:"article interessant",
       }
   ];
-  getAllFaceSnaps(): FaceSnap[] {
+
+
+
+  getAllFaceSnaps(): any {
+   
+    this.faceSnaps.sort((a,b)=> {
+
+    return new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()
+
+    });
     return this.faceSnaps;
+    
 }
+
+  
 
 getFaceSnapById(faceSnapId: number): FaceSnap {
     const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
