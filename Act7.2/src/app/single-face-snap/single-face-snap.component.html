@@ -1,0 +1,15 @@
+<div class="face-snap-card">
+    
+   <h2>{{ faceSnap.title | uppercase }}</h2>
+
+
+    <p><b>Publié : </b>{{ faceSnap.createdDate| date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <p>{{ faceSnap.description}}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
+    <p><b>Auteur de l'article : </b>{{ faceSnap.author }}</p>
+    <p><b>Commentaire : </b>{{ faceSnap.comment}}</p>
+    <button routerLink="/facesnaps">Retour vers tous les articles </button>  
+</div>
+
+

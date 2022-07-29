@@ -1,0 +1,7 @@
+<div class="face-snap-card">
+    <h2><b>Titre de l'article:</b> {{ faceSnap.title }}</h2>
+    <p><b>Description : </b>{{ faceSnap.description }}</p>
+    <p><b>Publié : </b>{{ faceSnap.createdDate| date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <button (click)="onViewFaceSnap()">Détails</button>
+  </div>
+
