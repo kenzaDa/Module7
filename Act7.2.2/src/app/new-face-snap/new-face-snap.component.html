@@ -1,0 +1,39 @@
+
+<div class="form-card">
+    <h2>Ajouter un article</h2>
+    <form  [formGroup]="snapForm">   
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input class="form-control" id="title" type="text" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" type="text" formControlName="description" rows="4">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">URL de l'image</label>
+            <input class="form-control" id="imageUrl" type="text" formControlName="imageUrl">
+        </div>
+
+        <div class="form-group">
+            <label for="title">Auteur</label>
+            <input class="form-control" id="title" type="text" formControlName="author">
+        </div>
+        <div class="form-group">
+            <label for="title">Date</label>
+            <input class="form-control" id="title" type="date" formControlName="createdDate">
+        </div>
+        <div class="action-buttons">
+            <button class="btn btn-secondary" type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
+    <h2>{{ faceSnap.title | uppercase }}</h2>
+    <p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p>{{ faceSnap.description }}</p>
+</div>

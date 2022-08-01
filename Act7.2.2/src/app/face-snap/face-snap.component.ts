@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FaceSnap } from '../Models/face-snap.model';
 
+
+
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
@@ -14,7 +16,7 @@ export class FaceSnapComponent implements OnInit {
   createdDate!: Date;
   author!: string;
   imageUrl!: string;
-  comment!: string;
+  comment!: Array<any>;
 
   constructor( private router:Router) {}
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FaceSnap } from '../Models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
   
@@ -10,10 +11,15 @@ import { FaceSnapsService } from '../services/face-snaps.service';
 export class FaceSnapListComponent implements OnInit {
   faceSnaps!: FaceSnap[];
   
-  constructor(private faceSnapsService: FaceSnapsService) { }
+  constructor(private faceSnapsService: FaceSnapsService, private router: Router) { }
 
   ngOnInit() {
     this.faceSnaps =this.faceSnapsService.getAllFaceSnaps();
+}
+
+
+onAddNewFaceSnap() {
+  this.router.navigateByUrl('/create');
 }
   }
 

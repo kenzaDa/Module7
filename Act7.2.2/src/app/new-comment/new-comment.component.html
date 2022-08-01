@@ -1,0 +1,11 @@
+<h2>Ajouter un commentaire</h2>
+<form  [formGroup]="commentForm">   
+    <div class="form-group">
+        <label for="title"> Votre commentaire</label>
+        <input class="form-control" id="comment" type="text" formControlName="comment">
+    </div>
+    <div class="action-buttons">
+        <button class="btn btn-secondary" type="submit" (click)="onSubmitComment()" [disabled]="commentForm.invalid">Enregistrer</button>
+    </div>
+</form>
+

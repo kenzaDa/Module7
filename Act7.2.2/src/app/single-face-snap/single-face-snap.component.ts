@@ -16,14 +16,15 @@ export class SingleFaceSnapComponent implements OnInit {
   createdDate!: Date;
   snaps!: number;
   imageUrl!: string;
-  buttonText!: string;
+  
+  
 
   constructor(private faceSnapsService: FaceSnapsService,
     private route: ActivatedRoute) {}
 
   ngOnInit() {
    
-    this.buttonText = 'Oh Snap!';
+    
     const snapId = +this.route.snapshot.params['id'];
     this.faceSnap = this.faceSnapsService.getFaceSnapById(snapId);
   }
