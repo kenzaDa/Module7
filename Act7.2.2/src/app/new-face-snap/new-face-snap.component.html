@@ -33,7 +33,8 @@
 
 <div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
     <h2>{{ faceSnap.title | uppercase }}</h2>
-    <p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <p><b>Publié : </b>{{ faceSnap.createdDate| date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <p>{{ faceSnap.description}}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
-    <p>{{ faceSnap.description }}</p>
+    <p> <b> Auteur de l'article : </b>{{ faceSnap.author }}</p>
 </div>

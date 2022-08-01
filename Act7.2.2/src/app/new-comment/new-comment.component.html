@@ -1,11 +1,24 @@
-<h2>Ajouter un commentaire</h2>
-<form  [formGroup]="commentForm">   
-    <div class="form-group">
-        <label for="title"> Votre commentaire</label>
-        <input class="form-control" id="comment" type="text" formControlName="comment">
+
+<div class="container">
+    <div class="commentForm">
+        <form [formGroup]="commentForm">
+            <h6>Ajouter un  commentire</h6>
+            <div class="mb-3">
+                <span class="form-label" for="content">Centenu:</span>
+                <textarea class="form-control" aria-label="With textarea" id="content" formControlName="content"
+                    rows="4"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" id="basic-addon1" for="author">Auteur:</label>
+                <input type="text" class="form-control" aria-label="author" aria-describedby="basic-addon1" id="author"
+                    formControlName="author">
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" (click)="onSubmitComment()" class="btn btn-secondary"
+                    [disabled]="commentForm.invalid">Enregistrer</button>
+            </div>
+        </form>
     </div>
-    <div class="action-buttons">
-        <button class="btn btn-secondary" type="submit" (click)="onSubmitComment()" [disabled]="commentForm.invalid">Enregistrer</button>
-    </div>
-</form>
+</div>
 

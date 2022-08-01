@@ -13,7 +13,8 @@ export class FaceSnapsService {
         imageUrl: 'https://th.bing.com/th/id/OIF.6gJK4vMv9Bx9V8Nwhpy6KA?pid=ImgDet&rs=1',
         createdDate: new Date("2022-05-27"),
         author:"Christo Grozev",
-        comment:["article passionnant !"],
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      
       },
       { id:2,
         title: 'Tour de France Femmes : la chute, ce roman toujours au programme',
@@ -21,7 +22,8 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/07/28/0/0/2234/1490/664/0/75/0/8bacf87_5818695-01-06.jpg',
         createdDate: new Date("2014-07-14"),
         author:"Alexandre Pedro",
-        comment:["article passionnant !"],
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      ,
       },
       { id:3,
         title: 'Plus de vingt ans qu’Ariol a 9 ans',
@@ -29,7 +31,8 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/07/18/0/0/3018/3155/664/0/75/0/a4fd26e_1658140030337-sans-titre-1.jpg',
         createdDate: new Date("2010-12-02"),
         author:"Stéphane Davet",
-        comment:["article passionnant !"]
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      
       },
       {id:4,
         title: 'Amazon remonte les prix de son abonnement Prime en France de 43 % par an et de 17 % par mois',
@@ -37,7 +40,8 @@ export class FaceSnapsService {
         imageUrl: 'https://cdn.kulturegeek.fr/wp-content/uploads/2020/12/Amazon-Logo-Depot-Centre-Distribution.jpg',
         createdDate: new Date("2019-02-10"),
         author:"Alexandre Piquard",
-        comment:["article passionnant !"]
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      
       
       },
       { id:5,
@@ -46,7 +50,8 @@ export class FaceSnapsService {
         imageUrl: 'https://th.bing.com/th/id/OIP.KTj3Hocs3549hwOMOxj_HQHaE8?pid=ImgDet&rs=1',
         createdDate: new Date("2018-03-30"),
         author:"Catherine Pacary",
-        comment:["article passionnant !", "article  tres interressant"]
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      
       },
       { id:6,
         title: 'Carte postale culinaire du Portugal : le tartare fruité de Marc Lorés Panadés',
@@ -54,7 +59,8 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/06/15/0/0/960/1280/664/0/75/0/4cb2841_1655304947880-carrot-tartar.jpg',
         createdDate: new Date("2020-06-19"),
         author:"Marc Lorés Panadés",
-        comment:["article passionnant !"]
+        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+      
       }
   ];
 
@@ -90,16 +96,18 @@ getFaceSnapById(faceSnapId: number): FaceSnap {
     };
     this.faceSnaps.push(faceSnap);
 }
-addComment(formValue: {comment : any}){
-  const faceSnap: FaceSnap = {
-    ...formValue,
-    title :this.faceSnaps[this.faceSnaps.length].title,
-    description :this.faceSnaps[this.faceSnaps.length].description,
-    author :this.faceSnaps[this.faceSnaps.length].author,
-    createdDate :this.faceSnaps[this.faceSnaps.length].createdDate,
-    id: this.faceSnaps[this.faceSnaps.length - 1].id
-};
-this.faceSnaps.push(faceSnap);
+
+
+addComment(formValue:{content: string, author: string},faceSnapId: number ):any{
+  const faceSnapcomment = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId)!.comment
+  const newComment 
+  = { 
+    ...formValue
+ }as unknown as {comment: Array<any>};
+ 
+ 
+return ((newComment as unknown as any[]).push(faceSnapcomment));
 }
 
 }
+

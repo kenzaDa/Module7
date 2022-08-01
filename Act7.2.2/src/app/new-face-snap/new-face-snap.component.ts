@@ -36,9 +36,7 @@ urlRegex!: RegExp;
 this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
   map(formValue => ({
       ...formValue,
-      createdDate: new Date(),
-      snaps: 0,
-      id: 0
+    
   }))
 );
   }
