@@ -43,4 +43,5 @@ this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
     this.faceSnapsService.addFaceSnap(this.snapForm.value).subscribe();
     this.router.navigateByUrl('/facesnaps');
 }
+
 }
