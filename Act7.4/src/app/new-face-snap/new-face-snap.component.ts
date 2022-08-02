@@ -14,20 +14,19 @@ export class NewFaceSnapComponent implements OnInit {
   snapForm!: FormGroup;
  
 faceSnapPreview$!: Observable<FaceSnap>;
-urlRegex!: RegExp;
+
 
   constructor(private formBuilder: FormBuilder,
     private faceSnapsService: FaceSnapsService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
+    
     this.snapForm = this.formBuilder.group({
-        title: [null,[Validators.required]],
-        description: [null,[Validators.required]],
-        imageUrl: [null, [Validators.pattern(this.urlRegex)]],
-        author : [null],
-        createdDate : [null],
+        titre: [null,[Validators.required]],
+        contenu: [null,[Validators.required]],
+        auteur : [null],
+        dateDePublication : [null],
        
     }, {
       updateOn: 'blur'
@@ -40,8 +39,8 @@ this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
   }))
 );
   }
-//   onSubmitForm() {
-//     this.faceSnapsService.addFaceSnap(this.snapForm.value);
-//     this.router.navigateByUrl('/facesnaps');
-// }
+  onSubmitForm() {
+    this.faceSnapsService.addFaceSnap(this.snapForm.value).subscribe();
+    this.router.navigateByUrl('/facesnaps');
+}
 }

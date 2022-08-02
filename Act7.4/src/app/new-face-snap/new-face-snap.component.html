@@ -1,40 +1,35 @@
 
-<!-- <div class="form-card">
+ <div class="form-card">
     <h2>Ajouter un article</h2>
     <form  [formGroup]="snapForm">   
         <div class="form-group">
             <label for="title">Titre</label>
-            <input class="form-control" id="title" type="text" formControlName="title">
+            <input class="form-control" id="title" type="text" formControlName="titre">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" type="text" formControlName="description" rows="4">
+            <textarea class="form-control" id="description" type="text" formControlName="contenu" rows="4">
             </textarea>
         </div>
         <div class="form-group">
-            <label for="imageUrl">URL de l'image</label>
-            <input class="form-control" id="imageUrl" type="text" formControlName="imageUrl">
-        </div>
-
-        <div class="form-group">
             <label for="title">Auteur</label>
-            <input class="form-control" id="title" type="text" formControlName="author">
+            <input class="form-control" id="title" type="text" formControlName="auteur">
         </div>
         <div class="form-group">
             <label for="title">Date</label>
-            <input class="form-control" id="title" type="date" formControlName="createdDate">
+            <input class="form-control" id="title" type="date" formControlName="dateDePublication">
         </div>
         <div class="action-buttons">
             <button class="btn btn-secondary" type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
         </div>
     </form>
-</div> -->
+</div> 
 
 
-<!-- <div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
-    <h2>{{ faceSnap.title | uppercase }}</h2>
-    <p><b>Publié : </b>{{ faceSnap.createdDate| date: 'à HH:mm, le d MMMM yyyy' }}</p>
-    <p>{{ faceSnap.description}}</p>
-    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
-    <p> <b> Auteur de l'article : </b>{{ faceSnap.author }}</p>
-</div> -->
+ <div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
+    <h2>{{ faceSnap.titre | uppercase }}</h2>
+    <p><b>Publié : </b>{{ faceSnap.dateDePublication }}</p>
+    <p>{{ faceSnap.contenu}}</p>
+   
+    <p> <b> Auteur de l'article : </b>{{ faceSnap.auteur }}</p>
+</div>

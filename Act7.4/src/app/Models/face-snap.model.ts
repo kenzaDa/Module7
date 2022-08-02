@@ -4,7 +4,4 @@ export class FaceSnap {
     auteur!: string;
     contenu!: string;
     dateDePublication!: Date;
-    // author!: string;
-    // snap? : number ;
-    // comment?: Array<any>;
   }
