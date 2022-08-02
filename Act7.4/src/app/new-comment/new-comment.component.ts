@@ -34,6 +34,6 @@ export class NewCommentComponent implements OnInit {
   }
   onSubmitComment() {
     const snapId = +this.route.snapshot.params['id'];
-    this.faceSnapsService.addComment(this.commentForm.value, snapId);
+    // this.faceSnapsService.addComment(this.commentForm.value, snapId);
     this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`); }
 }

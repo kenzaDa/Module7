@@ -13,7 +13,7 @@ export class FaceSnapsService {
         imageUrl: 'https://th.bing.com/th/id/OIF.6gJK4vMv9Bx9V8Nwhpy6KA?pid=ImgDet&rs=1',
         createdDate: new Date("2022-05-27"),
         author:"Christo Grozev",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       
       },
       { id:2,
@@ -22,7 +22,7 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/07/28/0/0/2234/1490/664/0/75/0/8bacf87_5818695-01-06.jpg',
         createdDate: new Date("2014-07-14"),
         author:"Alexandre Pedro",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       ,
       },
       { id:3,
@@ -31,7 +31,7 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/07/18/0/0/3018/3155/664/0/75/0/a4fd26e_1658140030337-sans-titre-1.jpg',
         createdDate: new Date("2010-12-02"),
         author:"Stéphane Davet",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       
       },
       {id:4,
@@ -40,7 +40,7 @@ export class FaceSnapsService {
         imageUrl: 'https://cdn.kulturegeek.fr/wp-content/uploads/2020/12/Amazon-Logo-Depot-Centre-Distribution.jpg',
         createdDate: new Date("2019-02-10"),
         author:"Alexandre Piquard",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       
       
       },
@@ -50,7 +50,7 @@ export class FaceSnapsService {
         imageUrl: 'https://th.bing.com/th/id/OIP.KTj3Hocs3549hwOMOxj_HQHaE8?pid=ImgDet&rs=1',
         createdDate: new Date("2018-03-30"),
         author:"Catherine Pacary",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       
       },
       { id:6,
@@ -59,7 +59,7 @@ export class FaceSnapsService {
         imageUrl: 'https://img.lemde.fr/2022/06/15/0/0/960/1280/664/0/75/0/4cb2841_1655304947880-carrot-tartar.jpg',
         createdDate: new Date("2020-06-19"),
         author:"Marc Lorés Panadés",
-        comment:[{author:'hbib', content:"article interressant "}, {author:'emna', content:"Bien ! "}]
+        comment:[{ content:"article interressant ",author:'hbib'}, { content:"Bien ! ",author:'emna'}]
       
       }
   ];
@@ -98,15 +98,16 @@ getFaceSnapById(faceSnapId: number): FaceSnap {
 }
 
 
-addComment(formValue:{content: string, author: string},faceSnapId: number ):any{
+addComment(formValue: { content: string , author: string } ,faceSnapId: number){
+  
   const faceSnapcomment = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId)!.comment
-  const newComment 
+  let newComment :any
   = { 
-    ...formValue
- }as unknown as {comment: Array<any>};
- 
- 
-return ((newComment as unknown as any[]).push(faceSnapcomment));
+    ...formValue,
+ };
+console.log((faceSnapcomment)) 
+ console.log(newComment)
+newComment.push(faceSnapcomment);
 }
 
 }
