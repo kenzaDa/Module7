@@ -1,0 +1,24 @@
+<div class="form-card">
+    <h2>Login</h2>
+    <form  [formGroup]="loginForm">   
+        <div class="form-group">
+            <label for="username">Email</label>
+            <input class="form-control" id="username" type="text" formControlName="username">
+            <div class="alert alert-danger" *ngIf="loginForm.controls['username'].touched && !loginForm.controls['username'].valid"> Entrez un email</div>
+        </div>
+       
+       
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input class="form-control" id="password" type="text" formControlName="password">
+            <div class="alert alert-danger" *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid"> Entrez un mot de passe</div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary" type="submit" (click)="onLogin()" [disabled]="loginForm.invalid">login</button>
+        </div>
+    </form>
+</div> 
+
+
+

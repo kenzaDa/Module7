@@ -1,0 +1,25 @@
+<div class="face-snap-card" *ngIf= " faceSnap$ | async as faceSnap">
+    
+   <h2>{{ faceSnap.titre| uppercase }}</h2>
+
+
+    <p><b>Publié : </b>{{ faceSnap.dateDePublication}}</p>
+    <p> <b>Contenu : </b>{{ faceSnap.contenu}}</p>
+    
+    <p> <b> Auteur de l'article : </b>{{ faceSnap.auteur}}</p> 
+    
+    <!-- <div class="card-footer"> <b>Commentaires:</b>
+            <div *ngFor="let comment of faceSnap.comment">
+                <p><b>ecrit par : </b>{{comment.author}}</p>
+                <p><b>contenu :</b>{{comment.content}}</p>
+            </div>
+        </div>
+        <button routerLink="/facesnaps">Retour vers tous les articles </button>   
+    </div> -->
+    <div class="container">
+        <button class="btn btn-secondary"(click)="OnDelete()">Supprimer</button>
+        </div>
+</div>
+<div class="card">
+<app-new-comment></app-new-comment>
+</div>
