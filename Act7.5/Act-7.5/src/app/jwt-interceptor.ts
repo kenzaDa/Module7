@@ -13,7 +13,7 @@ import {
 export class JwtInterceptor implements HttpInterceptor  {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        let jwt = JSON.parse(localStorage.getItem('jwt') as string).token;
+        let jwt = JSON.parse(localStorage.getItem('jwt') || '{}').token;
         if (jwt) {
         
             request = request.clone({

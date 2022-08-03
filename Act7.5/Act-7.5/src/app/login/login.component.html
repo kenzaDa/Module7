@@ -10,7 +10,7 @@
        
         <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input class="form-control" id="password" type="text" formControlName="password">
+            <input class="form-control" id="password" type="password" formControlName="password">
             <div class="alert alert-danger" *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid"> Entrez un mot de passe</div>
         </div>
         
