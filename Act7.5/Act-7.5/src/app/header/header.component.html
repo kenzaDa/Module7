@@ -5,7 +5,8 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link active" routerLink="">Home <span class="sr-only"></span></a>
             <a class="nav-item nav-link" routerLink="facesnaps">Tous les articles</a>
-            <a class="nav-item nav-link" routerLink="login">Login</a>
+            <a class="nav-item nav-link" routerLink="login" *ngIf="!isLoggedIn()">Login</a>
+            <a class="nav-item nav-link" routerLink="login" *ngIf="isLoggedIn()" (click)="onLogout()"> Logout </a>
           </div>
         </div>
       </nav>
