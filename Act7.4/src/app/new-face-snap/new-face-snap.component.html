@@ -5,13 +5,14 @@
         <div class="form-group">
             <label for="title">Titre</label>
             <input class="form-control" id="title" type="text" formControlName="titre">
-           
+            <div class="alert alert-danger" *ngIf="snapForm.touched && !snapForm.valid"> Entrez un titre</div>
         </div>
        
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" type="text" formControlName="contenu" rows="4">
             </textarea>
+            <div class="alert alert-danger" *ngIf="snapForm.touched && !snapForm.valid"> Entrez une description</div>
         </div>
         <div class="form-group">
             <label for="title">Auteur</label>
