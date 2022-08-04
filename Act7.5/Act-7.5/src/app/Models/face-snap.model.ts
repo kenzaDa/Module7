@@ -3,5 +3,5 @@ export class FaceSnap {
     titre!: string;
     auteur!: string;
     contenu!: string;
-    dateDePublication!: Date;
+    date_de_publication!: Date;
   }

@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
 import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
 import { AuthGuardService as AuthGuard  } from './services/auth-guard.service';
+import { RoleGuardService as RoleGuard} from './services/role-guard.service';
 
 const routes: Routes = [
    
@@ -13,7 +14,9 @@ const routes: Routes = [
       
     { path: 'facesnaps', component: FaceSnapListComponent,
     canActivate: [AuthGuard]  },
-    { path: 'create', component: NewFaceSnapComponent },
+    { path: 'create', component: NewFaceSnapComponent ,canActivate: [RoleGuard] , data: { 
+      expectedRole: 'ROLE_ADMIN'
+    }  },
     { path: 'login', component: LoginComponent },
     { path: '', component: LandingPageComponent }
       

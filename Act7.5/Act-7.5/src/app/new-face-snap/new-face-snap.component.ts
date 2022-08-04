@@ -26,7 +26,7 @@ faceSnapPreview$!: Observable<FaceSnap>;
         titre: [null,[Validators.required]],
         contenu: [null,[Validators.required]],
         auteur : [null],
-        dateDePublication : [null],
+        date_de_publication : [null],
        
     }, {
       updateOn: 'blur'

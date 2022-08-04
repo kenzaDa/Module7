@@ -10,6 +10,7 @@ import { FaceSnap } from '../Models/face-snap.model';
   templateUrl: './face-snap.component.html',
   styleUrls: ['./face-snap.component.scss']
 })
+
 export class FaceSnapComponent implements OnInit {
   @Input() faceSnap!: FaceSnap
  
@@ -24,7 +25,7 @@ export class FaceSnapComponent implements OnInit {
 onViewFaceSnap() {
 
   this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`);
-  console.log(this.faceSnap.id);
+  console.log(this.faceSnap);
 }
 
 }

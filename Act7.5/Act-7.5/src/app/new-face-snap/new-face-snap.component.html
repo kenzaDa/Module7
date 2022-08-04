@@ -15,12 +15,12 @@
             <div class="alert alert-danger" *ngIf="snapForm.touched && !snapForm.valid"> Entrez une description</div>
         </div>
         <div class="form-group">
-            <label for="title">Auteur</label>
+            <label for="auteur">Auteur</label>
             <input class="form-control" id="title" type="text" formControlName="auteur">
         </div>
         <div class="form-group">
-            <label for="title">Date</label>
-            <input class="form-control" id="title" type="date" formControlName="dateDePublication">
+            <label for="dateDePublication">Date</label>
+            <input class="form-control" id="title" type="date" formControlName="date_de_publication">
         </div>
         <div class="action-buttons">
             <button class="btn btn-secondary" type="submit" (click)="onSubmitForm()" [disabled]="snapForm.invalid">Enregistrer</button>
@@ -31,7 +31,7 @@
 
  <div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
     <h2>{{ faceSnap.titre | uppercase }}</h2>
-    <p><b>Publié : </b>{{ faceSnap.dateDePublication }}</p>
+    <p><b>Publié : </b>{{ faceSnap.date_de_publication }}</p>
     <p>{{ faceSnap.contenu}}</p>
    
     <p> <b> Auteur de l'article : </b>{{ faceSnap.auteur }}</p>
