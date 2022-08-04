@@ -13,6 +13,7 @@ import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
 import { NewCommentComponent } from './new-comment/new-comment.component';
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './jwt-interceptor';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { JwtInterceptor } from './jwt-interceptor';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: JWT_OPTIONS , useValue: JWT_OPTIONS},
+    JwtHelperService
 ],
   bootstrap: [AppComponent]
 })
